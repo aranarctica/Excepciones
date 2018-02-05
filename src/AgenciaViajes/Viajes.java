@@ -1,4 +1,7 @@
 package AgenciaViajes;
+
+import java.util.Scanner;
+
 /**
  * Creamos la clase y le damos los atributos
  * @author ik012982i9
@@ -16,7 +19,11 @@ public class Viajes {
 	private int viajesDispo;
 
 	
-	public void Viajes() {
+	
+	
+	
+	
+	public Viajes() {
 
 	}
 
@@ -30,25 +37,32 @@ public class Viajes {
 	}
 
 	public int getCapacidad() {
+		
 		return capacidad;
 	}
 
 	public void setCapacidad(int capacidad) {
-		this.capacidad = capacidad;
+		System.out.println("Introduce la gente que viene a la ciudad:");
+		Integer gente;
+		Integer ocupacion = null;
+		try{
+			Scanner scan = new Scanner(System.in);
+			gente = Integer.parseInt(scan.nextLine());
+			capacidad = ocupacion/gente;
+		}catch(NullPointerException e){
+			System.err.println("Se esperaba un numero que no fuese 0");
+		}
+	
 	}
 
 	public int getOcupacion() {
 		return ocupacion;
 	}
-	/**
-	 * Miramos si la capacidad de la ocupacion es inferior al 20%
-	 * @param ocupacion
-	 */
+	
 
 	public void setOcupacion(int ocupacion) {
-		if(ocupacion <= (capacidad*100)/20);
 		
-		this.ocupacion = ocupacion;
+		
 	}
 
 	public String getHoteles() {
@@ -129,14 +143,24 @@ public class Viajes {
 	 * Miramos si hay viajes disponibles
 	 * @param viajesDispo
 	 */
-	public void setViajesDispo(int viajesDispo) {
+	public void setViajesDispo() {
 		System.out.println("Introduce la Cantidad de viajes que hay disponibles: ");
-		if (viajesDispo <= 0) {
-			System.out.println("No hay viajes disponibles");
-		} else {
-			System.out.println("Los viajes disponibles son los siguientes: ");
+		int dispo;
+		try{
+			Scanner scan = new Scanner(System.in);
+			dispo = Integer.parseInt(scan.nextLine());
+			if (dispo == 0) {
+				System.out.println("No hay viajes disponibles");
+			} else {
+				System.out.println("Los viajes disponibles son los siguientes: ");
+			}
+			this.viajesDispo = dispo;
 		}
-		this.viajesDispo = viajesDispo;
+		catch(NumberFormatException e){
+			System.out.println("Error de formato, se esperaba un entero.");
+		}
+		
+		
 	}
 
 }
