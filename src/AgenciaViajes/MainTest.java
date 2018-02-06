@@ -28,7 +28,7 @@ public class MainTest {
 	@Test
 	public void queCapacidad(){
 		int capacidad = 5;
-		assertSame(capacidad, viajes.getCapacidad());
+		assertNull(capacidad, viajes.getCapacidad());
 		
 	
 	}
