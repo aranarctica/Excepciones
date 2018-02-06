@@ -8,12 +8,7 @@ public class MainTest {
 	
 	Viajes viajes = new Viajes("Canarias", 50 , "Teide", 550, 90);
 
-	@Test
-	public void destinoCorrecto(){
-		String destino = "canarias";
-		assertEquals(destino, viajes.getDestinos());
-		
-	}
+
 
 	
 	@Test
@@ -30,14 +25,15 @@ public class MainTest {
 		assertFalse(tours, viajes.getTours());
 	}
 	
-	
-
 	@Test
-	public void precios(){
+	public void queCapacidad(){
+		int capacidad = 5;
+		assertSame(capacidad, viajes.getCapacidad());
 		
-		double precios = 550;
-		assertSame(precios, viajes.getPrecios());
+	
 	}
+
+	
 
 	@Test
 	public void ocupacion(){

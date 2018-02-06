@@ -9,6 +9,7 @@ import java.util.Scanner;
  *
  */
 public class Viajes {
+	Scanner scan = new Scanner(System.in);
 
 	private String hoteles;
 	private int ocupacion;
@@ -18,9 +19,27 @@ public class Viajes {
 	private String clientes;
 	private String destinos;
 	private int viajesDispo;
+	private String[] paquetes;
 
 	public Viajes() {
 
+	}
+
+	public String[] getPaquetes() {
+		return paquetes;
+	}
+
+	public void setPaquetes(String[] arraix) {
+
+		this.paquetes = arraix;
+	}
+
+	public void setTours(String tours) {
+		this.tours = tours;
+	}
+
+	public void setViajesDispo(int viajesDispo) {
+		this.viajesDispo = viajesDispo;
 	}
 
 	public Viajes(String destinos, int viajesDispo, String tours, float precios, int ocupacion) {
@@ -99,15 +118,16 @@ public class Viajes {
 	 * @param epa
 	 */
 	public void setTours(Viajes epa) {
-		try{
-		if (viajesDispo <= 0) {
-			System.out.println("Estos son los tours disponibles");
+		try {
+			if (viajesDispo <= 0) {
+				System.out.println("Estos son los tours disponibles");
+			}
+			this.tours = tours;
+		} catch (NumberFormatException e) {
+			System.out.println("No puede hacer un numero negativo");
 		}
-		this.tours = tours;
-	} catch(NumberFormatException e){
-		System.out.println("No puede hacer un numero negativo");
 	}
-	}
+
 	public String getClientes() {
 		return clientes;
 	}
@@ -158,6 +178,18 @@ public class Viajes {
 			System.out.println("Error de formato, se esperaba un entero.");
 		}
 
+	}
+	
+
+	public void setPaquetes(Viajes arraix) {
+		try {
+			String[] paquete = new String[8];
+			System.out.println("Introduce la cantidad de elementos del paquete");
+			String res = scan.nextLine();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("La cantidad introducida es superior a la capacidad del paquete");
+
+		}
 	}
 
 }

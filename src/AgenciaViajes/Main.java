@@ -10,6 +10,11 @@ public class Main {
 		koko.setCapacidad(5);
 		Viajes muu = new Viajes();
 		muu.setTours(epa);
+		Viajes arraix = new Viajes();
+		arraix.setPaquetes(arraix);
+		
+		
+		
 	}
 
 }
