@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Creamos la clase y le damos los atributos
+ * 
  * @author ik012982i9
  *
  */
@@ -18,11 +19,6 @@ public class Viajes {
 	private String destinos;
 	private int viajesDispo;
 
-	
-	
-	
-	
-	
 	public Viajes() {
 
 	}
@@ -37,7 +33,7 @@ public class Viajes {
 	}
 
 	public int getCapacidad() {
-		
+
 		return capacidad;
 	}
 
@@ -45,24 +41,22 @@ public class Viajes {
 		System.out.println("Introduce la gente que viene a la ciudad:");
 		Integer gente;
 		Integer ocupacion = null;
-		try{
+		try {
 			Scanner scan = new Scanner(System.in);
 			gente = Integer.parseInt(scan.nextLine());
-			capacidad = ocupacion/gente;
-		}catch(NullPointerException e){
+			capacidad = ocupacion / gente;
+		} catch (NullPointerException e) {
 			System.err.println("Se esperaba un numero que no fuese 0");
 		}
-	
+
 	}
 
 	public int getOcupacion() {
 		return ocupacion;
 	}
-	
 
 	public void setOcupacion(int ocupacion) {
-		
-		
+
 	}
 
 	public String getHoteles() {
@@ -78,20 +72,19 @@ public class Viajes {
 		return precios;
 	}
 
-	
 	/**
-	 * subimos los precios dependiendo de la cantidad de viajes diposnibles y de la ocupacion
+	 * subimos los precios dependiendo de la cantidad de viajes diposnibles y de
+	 * la ocupacion
+	 * 
 	 * @param precios
 	 */
 	public void setPrecios(float precios) {
-		
-		
-		
+
 		if (viajesDispo <= 5) {
 			this.precios = (precios * 100) / precios;
 		}
-		if(ocupacion > (ocupacion*100)/80){
-			this.precios = (precios*100) / precios;
+		if (ocupacion > (ocupacion * 100) / 80) {
+			this.precios = (precios * 100) / precios;
 		}
 		this.precios = precios;
 	}
@@ -100,18 +93,21 @@ public class Viajes {
 		return tours;
 	}
 
-	
 	/**
 	 * Mostramos los tours disponibles
-	 * @param tours
+	 * 
+	 * @param epa
 	 */
-	public void setTours(String tours) {
+	public void setTours(Viajes epa) {
+		try{
 		if (viajesDispo <= 0) {
 			System.out.println("Estos son los tours disponibles");
 		}
 		this.tours = tours;
+	} catch(NumberFormatException e){
+		System.out.println("No puede hacer un numero negativo");
 	}
-
+	}
 	public String getClientes() {
 		return clientes;
 	}
@@ -123,8 +119,10 @@ public class Viajes {
 	public String getDestinos() {
 		return destinos;
 	}
+
 	/**
 	 * Mostramos los destinos
+	 * 
 	 * @param destinos
 	 */
 
@@ -141,12 +139,13 @@ public class Viajes {
 
 	/**
 	 * Miramos si hay viajes disponibles
+	 * 
 	 * @param viajesDispo
 	 */
 	public void setViajesDispo() {
 		System.out.println("Introduce la Cantidad de viajes que hay disponibles: ");
 		int dispo;
-		try{
+		try {
 			Scanner scan = new Scanner(System.in);
 			dispo = Integer.parseInt(scan.nextLine());
 			if (dispo == 0) {
@@ -155,12 +154,10 @@ public class Viajes {
 				System.out.println("Los viajes disponibles son los siguientes: ");
 			}
 			this.viajesDispo = dispo;
-		}
-		catch(NumberFormatException e){
+		} catch (NumberFormatException e) {
 			System.out.println("Error de formato, se esperaba un entero.");
 		}
-		
-		
+
 	}
 
 }
