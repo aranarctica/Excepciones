@@ -171,7 +171,7 @@ public class Viajes {
 	 * 
 	 * @param viajesDispo
 	 */
-	public void setViajesDispo() {
+	public void ViajesDispo() {
 		System.out.println("Introduce la Cantidad de viajes que hay disponibles: ");
 		int dispo;
 		try {
@@ -189,18 +189,6 @@ public class Viajes {
 
 	}
 
-	public void PaquetesDisponibles(Viajes arraix) {
-		String[] paquete = new String[5];
-		try {
-			System.out.println("Introduce la cantidad de elementos del paquete");
-			int i = 0;
-			String paket = scan.nextLine();
-			paquete[i] = paket;
-			i++;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("La cantidad introducida es superior a la capacidad del paquete");
-
-		}
-	}
+	
 
 }

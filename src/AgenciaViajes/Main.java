@@ -16,16 +16,13 @@ public class Main {
 		}
 		
 		
-//		Viajes epa = new Viajes();
-//		epa.setViajesDispo();
-//		
-//		
-//		
-		Viajes muu = new Viajes();
-		muu.setTours(europa);
+		Viajes gozada = new Viajes();
+		gozada.ViajesDispo();
+	
 		
-		muu.PaquetesDisponibles(muu);
-
+		
+		
+	
 		
 		
 		
