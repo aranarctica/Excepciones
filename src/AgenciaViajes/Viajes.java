@@ -11,17 +11,26 @@ import java.util.Scanner;
 public class Viajes {
 	Scanner scan = new Scanner(System.in);
 
-	private String hoteles;
+	private String hoteles = null;
 	private int ocupacion;
-	private int capacidad;
-	private float precios;
-	private String tours;
-	private String clientes;
-	private String destinos;
-	private int viajesDispo;
-	private String[] paquetes;
+	private int capacidad = 0;
+	private float precios = 0;
+	private String tours = null;
+	private String clientes = null;
+	private String destinos = null;
+	private int viajesDispo = 0;
+	private String[] paquetes = null;
 
 	public Viajes() {
+
+	}
+
+	public Viajes(String destinos, int viajesDispo, String tours, float precios, int ocupacion) {
+		this.destinos = destinos;
+		this.viajesDispo = viajesDispo;
+		this.tours = tours;
+		this.ocupacion = ocupacion;
+		this.precios = precios;
 
 	}
 
@@ -42,30 +51,29 @@ public class Viajes {
 		this.viajesDispo = viajesDispo;
 	}
 
-	public Viajes(String destinos, int viajesDispo, String tours, float precios, int ocupacion) {
-		this.destinos = destinos;
-		this.viajesDispo = viajesDispo;
-		this.tours = tours;
-		this.ocupacion = ocupacion;
-		this.precios = precios;
-
-	}
-
 	public int getCapacidad() {
 
 		return capacidad;
 	}
 
 	public void setCapacidad(int capacidad) {
-		System.out.println("Introduce la gente que viene a la ciudad:");
-		Integer gente;
-		Integer ocupacion = null;
-		try {
+		this.capacidad = capacidad;
+	}
+
+	public void porcentajeOcupacion() throws InterruptedException {
+		double capacidadGlobal = -1;
+		double gente = -1;
+		int ocupacion = -1;
+		ocupacion = this.getOcupacion();
+		if (ocupacion != 0) {
+			System.out.println("Introduce la gente que viene a la ciudad:");
 			Scanner scan = new Scanner(System.in);
 			gente = Integer.parseInt(scan.nextLine());
-			capacidad = ocupacion / gente;
-		} catch (NullPointerException e) {
-			System.err.println("Se esperaba un numero que no fuese 0");
+			capacidadGlobal = (ocupacion * 100) / gente;
+			System.out.println(capacidadGlobal);
+		} else {
+			System.out.println("Debes insertar valor de ocupación: setOcupación");
+
 		}
 
 	}
@@ -75,7 +83,7 @@ public class Viajes {
 	}
 
 	public void setOcupacion(int ocupacion) {
-
+		this.ocupacion = ocupacion;
 	}
 
 	public String getHoteles() {
@@ -91,13 +99,18 @@ public class Viajes {
 		return precios;
 	}
 
+	public void setPrecios(float n) {
+
+		this.setPrecios(n);
+	}
+
 	/**
 	 * subimos los precios dependiendo de la cantidad de viajes diposnibles y de
 	 * la ocupacion
 	 * 
 	 * @param precios
 	 */
-	public void setPrecios(float precios) {
+	public void setPreciosPaquete(float n) {
 
 		if (viajesDispo <= 5) {
 			this.precios = (precios * 100) / precios;
@@ -120,7 +133,7 @@ public class Viajes {
 	public void setTours(Viajes epa) {
 		try {
 			if (viajesDispo <= 0) {
-				System.out.println("Estos son los tours disponibles");
+				System.out.println("Estos son los tours disponibles:");
 			}
 			this.tours = tours;
 		} catch (NumberFormatException e) {
@@ -147,10 +160,6 @@ public class Viajes {
 	 */
 
 	public void setDestinos(String destinos) {
-		if (viajesDispo <= 0) {
-			System.out.println("Los destinos posibles son los siguientes:");
-		}
-		this.destinos = destinos;
 	}
 
 	public int getViajesDispo() {
@@ -179,13 +188,15 @@ public class Viajes {
 		}
 
 	}
-	
 
-	public void setPaquetes(Viajes arraix) {
+	public void PaquetesDisponibles(Viajes arraix) {
+		String[] paquete = new String[5];
 		try {
-			String[] paquete = new String[8];
 			System.out.println("Introduce la cantidad de elementos del paquete");
-			String res = scan.nextLine();
+			int i = 0;
+			String paket = scan.nextLine();
+			paquete[i] = paket;
+			i++;
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("La cantidad introducida es superior a la capacidad del paquete");
 

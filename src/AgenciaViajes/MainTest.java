@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class MainTest {
 	
-	Viajes viajes = new Viajes("Canarias", 50 , "Teide", 550, 90);
+	Viajes viajes = new Viajes();
 
 
 
