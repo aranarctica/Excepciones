@@ -61,14 +61,13 @@ public class Viajes {
 	}
 
 	public void porcentajeOcupacion() throws InterruptedException {
+		Comunicacion comunicar = new Comunicacion();
+		double gente = 0;
 		double capacidadGlobal = -1;
-		double gente = -1;
 		int ocupacion = -1;
 		ocupacion = this.getOcupacion();
 		if (ocupacion != 0) {
-			System.out.println("Introduce la gente que viene a la ciudad:");
-			Scanner scan = new Scanner(System.in);
-			gente = Integer.parseInt(scan.nextLine());
+
 			capacidadGlobal = (ocupacion * 100) / gente;
 			System.out.println(capacidadGlobal);
 		} else {
@@ -188,7 +187,5 @@ public class Viajes {
 		}
 
 	}
-
-	
 
 }
